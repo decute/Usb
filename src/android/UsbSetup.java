@@ -66,7 +66,6 @@ public class UsbSetup extends CordovaPlugin {
                     deviceObj.put("DeviceID", device.getDeviceId());
                     deviceObj.put("DeviceName", device.getDeviceName());
                     deviceObj.put("DeviceClass", device.getDeviceClass());
-                    deviceObj.put("DeviceSubClass", device.DeviceSubClass());
                     deviceObj.put("VendorID", device.getVendorId());
                     deviceObj.put("ProductID", device.getProductId());
                     deviceObj.put("InterfaceCount", device.getInterfaceCount());    
