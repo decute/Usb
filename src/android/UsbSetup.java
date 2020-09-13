@@ -57,20 +57,20 @@ public class UsbSetup extends CordovaPlugin {
                 callbackContext.success("No Devices Currently Connected");
             }else{
             Iterator<UsbDevice> deviceIterator = connectedDevices.values().iterator();
-            JSONObject device = null;
-            JSONArray devices = new JSONArray();
+            JSONObject deviceObj = null;
+            JSONArray devicesArray = new JSONArray();
             while (deviceIterator.hasNext()) {
                     UsbDevice device = deviceIterator.next();  
                     try{
                     device = new JSONObject();    
-                    device.put("DeviceID", device.getDeviceId());
-                    device.put("DeviceName", device.getDeviceName());
-                    device.put("DeviceClass", device.getDeviceClass());
-                    device.put("DeviceSubClass", device.DeviceSubClass());
-                    device.put("VendorID", device.getVendorId());
-                    device.put("ProductID", device.getProductId());
-                    device.put("InterfaceCount", device.getInterfaceCount());    
-                    devices.put(device); 
+                    deviceObj.put("DeviceID", device.getDeviceId());
+                    deviceObj.put("DeviceName", device.getDeviceName());
+                    deviceObj.put("DeviceClass", device.getDeviceClass());
+                    deviceObj.put("DeviceSubClass", device.DeviceSubClass());
+                    deviceObj.put("VendorID", device.getVendorId());
+                    deviceObj.put("ProductID", device.getProductId());
+                    deviceObj.put("InterfaceCount", device.getInterfaceCount());    
+                    devicesArray.put(deviceObj); 
                     } catch (JSONException e) {
                      // TODO Auto-generated catch block                        
                        callbackContext.error("Failed to bind Device Information" + e.printStackTrace());

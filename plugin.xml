@@ -10,7 +10,10 @@
             <param name="android-package" value="cordova.plugin.usbsetup.UsbSetup" />
          </feature>
       </config-file>
-      <config-file parent="/*" target="AndroidManifest.xml" />
+
+       <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.hardware.usb.host"/>
+        </config-file>
       <source-file src="src/android/UsbSetup.java" target-dir="src/cordova/plugin/usbsetup/UsbSetup" />
    </platform>
 </plugin>
