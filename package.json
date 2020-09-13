@@ -1,5 +1,5 @@
 {
-  "name": "UsbSetup",
+  "name": "usbsetup",
   "version": "1.0.0",
   "description": "This is USB Plugin",
   "main": "index.js",
