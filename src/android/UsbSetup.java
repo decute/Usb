@@ -31,6 +31,9 @@ public class UsbSetup extends CordovaPlugin {
             String message = args.getString(0);
             this.coolMethod(message, callbackContext);
             return true;
+        }else if(action.equals("findUsbDevices")){
+            this.findUsbDevices(callbackContext);
+            return true;
         }
         return false;
     }
