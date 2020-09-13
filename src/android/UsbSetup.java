@@ -50,7 +50,7 @@ public class UsbSetup extends CordovaPlugin {
 
     private void findUsbDevices(CallbackContext callbackContext) {
 
-            mUsbManager = (UsbManager) cordova.getActivity().getSystemService(Context.USB_SERVICE);
+            mUsbManager = (UsbManager) cordova.getActivity().getSystemService(UsbManager.class);
             connectedDevices = mUsbManager.getDeviceList();
 
             if (connectedDevices.isEmpty()) {
@@ -62,7 +62,7 @@ public class UsbSetup extends CordovaPlugin {
             while (deviceIterator.hasNext()) {
                     UsbDevice device = deviceIterator.next();  
                     try{
-                    device = new JSONObject();    
+                    deviceObj = new JSONObject();    
                     deviceObj.put("DeviceID", device.getDeviceId());
                     deviceObj.put("DeviceName", device.getDeviceName());
                     deviceObj.put("DeviceClass", device.getDeviceClass());
@@ -73,10 +73,10 @@ public class UsbSetup extends CordovaPlugin {
                     devicesArray.put(deviceObj); 
                     } catch (JSONException e) {
                      // TODO Auto-generated catch block                        
-                       callbackContext.error("Failed to bind Device Information" + e.printStackTrace());
+                       callbackContext.error("Failed to bind Device Information");
                     } 
               }
-                callbackContext.success(devices);
+                callbackContext.success(devicesArray);
             }
     }
 
