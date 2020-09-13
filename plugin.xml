@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-usbsetup" version="1.0.0">
+   <name>UsbSetup</name>
+   <js-module name="UsbSetup" src="www/UsbSetup.js">
+      <clobbers target="cordova.plugins.UsbSetup" />
+   </js-module>
+   <platform name="android">
+      <config-file parent="/*" target="res/xml/config.xml">
+         <feature name="UsbSetup">
+            <param name="android-package" value="cordova.plugin.usbsetup.UsbSetup" />
+         </feature>
+      </config-file>
+      <config-file parent="/*" target="AndroidManifest.xml" />
+      <source-file src="src/android/UsbSetup.java" target-dir="src/cordova/plugin/usbsetup/UsbSetup" />
+   </platform>
+</plugin>
